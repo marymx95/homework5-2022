@@ -1,3 +1,5 @@
+/*The following specifications are for default view*/
+/*Logo animation keyframe*/
 @keyframes mymove {
   from {
     width: 25px;
@@ -35,7 +37,7 @@ header {
   justify-content: center;
   flex-wrap: wrap;
 }
-
+/*Had to override color and text-decoration, !important does that*/
 .nav_items a,
 a:visited,
 a:active,
@@ -44,13 +46,14 @@ a:hover {
   text-decoration: underline !important;
 
 }
-
+/*Styles the first header per card*/
 .card>header:first-child {
   background-color: #288088;
   border: solid 2px #45ADAD;
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 50px 50px 0 0;
+  /*top-left and top-right border-radius of 50px*/
 
 
 
@@ -62,7 +65,10 @@ a:hover {
 
   flex-basis: 450px;
   align-self: center;
-  border-radius: 50px 50px 0 0;
+  border-radius: 50px 50px 0 0; 
+  /*Had to give caard a border radius because the first header of 
+  each card has this same radius and without this you will see a
+  white background behind curved edges*/
 
 
 
@@ -94,9 +100,8 @@ a:hover {
   justify-content: center;
 }
 
-@media screen and (min-width: 800px) {
-
-
+/* The following specifications are for when the screen-size is greater than 900px */
+@media screen and (min-width: 900px) {
 
   header {
 
@@ -109,6 +114,7 @@ a:hover {
 
   #logo {
     align-self: flex-start;
+    /*Puts the logo all the way to the left*/
   }
 
   .nav_links {
@@ -132,22 +138,22 @@ a:hover {
   }
 
   body>header {
-    position: sticky;
-    top: 0;
-    width: 100%;
+    position: sticky; /*Keeps header in place*/
+    top: 0; /*This was needed to keep the header visable while scrolling*/
+    width: 100%; /*This was needed because the headers style was not the whole width of the page*/
 
   }
 
 
 }
-
+/*The following specifications are for when the user prefers reduced motion */
 @media screen and (prefers-reduced-motion: reduce) {
 
   #logo {
     animation: none;
   }
 }
-
+/*The following specifications are for when the page is printed in portrait mode */
 @media print {
   body {
     font-family: Arial, Helvetica;
@@ -165,6 +171,8 @@ a:hover {
 
   nav {
     width: 100%;
+    /*Had to set this width to override existing styling 
+    because it the nav_link items werent as spread out*/
   }
 
   .nav_item {
@@ -184,12 +192,15 @@ a:hover {
   .card {
     border: solid 2px #45ADDD;
     flex-basis: 325px;
-    align-self: flex-end;
+    align-self: flex-end; /*Aligns card items on the bottom */
+    
   }
   .gallery, #gallery{
     display:none;
+    /*Hides gallery images and header*/
   }
   .card li:nth-child(2)::after{
     content: "\1F44D";
+    /* Emoji - Thumbs up*/
   }
 }
